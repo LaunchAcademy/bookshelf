@@ -1,21 +1,26 @@
-require 'sinatra'
-require 'sinatra/activerecord'
-require 'sinatra/reloader'
+require "sinatra"
+require "sinatra/activerecord"
+require "sinatra/reloader"
 
 configure :development, :test do
-  require 'pry'
+  require "pry"
 end
 
 configure do
-  set :views, 'app/views'
+  set :views, "app/views"
 end
 
-Dir[File.join(File.dirname(__FILE__), 'app', '**', '*.rb')].each do |file|
+Dir[File.join(File.dirname(__FILE__), "app", "**", "*.rb")].each do |file|
   require file
   also_reload file
 end
 
-get '/' do
+get "/" do
   @title = "Welcome to the Bookshelf!"
   erb :index
+end
+
+get "/people" do
+  @people = Person.all
+  erb :people
 end

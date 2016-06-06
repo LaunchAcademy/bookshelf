@@ -1,0 +1,9 @@
+<h1>People</h1>
+
+<% @people.each do |person| %>
+  <div class="person">
+    <a href="/person/<%= person.id %>">
+      <%= person.name %>
+    </a>
+  </div>
+<% end %>
