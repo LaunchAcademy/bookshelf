@@ -21,6 +21,11 @@ get "/" do
 end
 
 get "/people" do
-  @people = Person.all
+  @people = Person.order(created_at: :desc).limit(10)
   erb :people
+end
+
+get "/books" do
+  @books = Book.order(created_at: :desc).limit(10)
+  erb :books
 end

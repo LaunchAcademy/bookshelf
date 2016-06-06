@@ -1,4 +1,3 @@
-
 require "spec_helper"
 
 feature "people" do
