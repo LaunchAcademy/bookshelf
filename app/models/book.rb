@@ -1,3 +1,3 @@
-class Person < ActiveRecord::Base
+class Book < ActiveRecord::Base
 
 end
