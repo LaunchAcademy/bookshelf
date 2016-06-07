@@ -1,6 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Example:
-#
-#   Person.create(first_name: 'Eric', last_name: 'Kelly')
+person = Person.find_or_create_by(name: "Richard")
+
+books_params = [
+  { title: "Ready Player One", authors: ["Ernest Kline"] },
+  { title: "The Shining", authors: ["Stephen King"] },
+  { title: "Carrie", authors: ["Stephen King"] },
+  { title: "Rails 4 Way", authors: ["Obie Fernandez", "Kevin Faustino"] }
+]
+
+books_params.each do |book_params|
+  book = Book.find_or_create_by(title: book_params[:title], person: person)
+
+  authors = book_params[:authors].map do |author_name|
+    Author.find_or_create_by(name: author_name)
+  end
+
+  book.authors.push(*authors)
+end
