@@ -4,6 +4,9 @@ class Book < ActiveRecord::Base
   has_many :book_authors
   has_many :authors, through: :book_authors
 
+  # validates :pages,
+  #   numericality: { only_integer: true, greater_than: 0 }
+
   def author
     authors.first
   end

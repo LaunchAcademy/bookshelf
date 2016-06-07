@@ -12,6 +12,11 @@ RSpec.describe Person do
     it "allows you to get the name" do
       expect(person.name).to eq("Richard")
     end
+
+    it "must be present" do
+      no_name = Person.new(name: nil)
+      expect(no_name).to_not be_valid
+    end
   end
 
   describe "#books" do
