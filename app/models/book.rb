@@ -7,4 +7,8 @@ class Book < ActiveRecord::Base
   def author
     authors.first
   end
+
+  def to_s
+    title
+  end
 end
