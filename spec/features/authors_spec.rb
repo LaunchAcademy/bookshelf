@@ -21,8 +21,21 @@ feature "authors" do
 
       visit "/authors"
 
-      expect(page).to have_link("Stephen King")
-      expect(page).to have_link("Ernest Kline")
+      expect(page).to have_link("Stephen King", href: "/authors/#{stephen.id}/books")
+      expect(page).to have_link("Ernest Kline", href: "/authors/#{ernest.id}/books")
+    end
+
+    scenario "view books by an author" do
+      stephen = Author.create(name: "Stephen King")
+      carrie = Book.create(title: "Carrie")
+      the_shining = Book.create(title: "The Shining")
+      stephen.books << carrie
+      stephen.books << the_shining
+
+      visit "/authors/#{stephen.id}/books"
+
+      expect(page).to have_content("Carrie")
+      expect(page).to have_content("The Shining")
     end
   end
 end

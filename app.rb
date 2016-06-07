@@ -25,6 +25,12 @@ get "/authors" do
   erb :authors
 end
 
+get "/authors/:id/books" do
+  @author = Author.find(params[:id])
+  @books = @author.books
+  erb :books
+end
+
 get "/books" do
   @books = Book.order(created_at: :desc).limit(10)
   erb :books
