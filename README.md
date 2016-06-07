@@ -1,45 +1,36 @@
-# Sinatra Active Record Starter Kit
+# Bookshelf
 
-This template provides a basic [Sinatra](http://www.sinatrarb.com/) application
-that includes:
+A Sinatra/ActiveRecord App demonstrating Validation and Associations
 
-- [Active Record](http://guides.rubyonrails.org/active_record_querying.html)
-using [sinatra-activerecord](https://github.com/janko-m/sinatra-activerecord)
-- [PostgreSQL](http://www.postgresql.org/) for a database
-- [Sinatra::Reloader](http://www.sinatrarb.com/contrib/reloader.html) to
-  automatically reload modified files during development
-- [RSpec](https://github.com/rspec/rspec) for unit testing
-- [Capybara](https://github.com/jnicklas/capybara) for acceptance testing
-- [Pry](https://github.com/pry/pry) for debugging
+Build from Launch Academy's Sinatra Active Record Starter Kit
+
 
 ## Getting Started
 
 ```no-highlight
-# Clone down this template
-git clone git@github.com:LaunchAcademy/sinatra-activerecord-starter-kit.git <YOUR_APP_NAME>
+# Clone it
+git clone git@github.com:LaunchAcademy/bookshelf
 
-# Move into your app's directory
-cd <YOUR_APP_NAME>
+# Move into the directory
+cd bookshelf
 
 # Install all the gems
 bundle install
 
-# Remove the old git history and start your own
-rm -rf .git && git init && git add -A && git commit -m 'Initial commit'
+# Setup the development and test databases
+rake db:create db:migrate db:test:prepare
+
+# Run the test suite
+rake
+
+# Start the app
+ruby app.rb
 ```
 
-### Configuring Your Database
-
-This template is set up for using a PostgreSQL database. You will need to create a
-`config/database.yml`. There is an example at `config/database.example.yml`.
-
-Once you've created a `config/database.yml`, you can create your database with
-`rake db:create`.
 
 ## Rake Tasks
 
-This template uses the [sinatra-activerecord](https://github.com/janko-m/sinatra-activerecord)
-gem, which provides the following rails-like rake tasks:
+This app uses the [sinatra-activerecord](https://github.com/janko-m/sinatra-activerecord) gem, which provides the following rails-like rake tasks:
 
 ```no-highlight
 rake db:create            # create the database from config/database.yml from the current Sinatra env
