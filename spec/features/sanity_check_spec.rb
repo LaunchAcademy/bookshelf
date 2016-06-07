@@ -1,7 +1,7 @@
 require "spec_helper"
 
-feature "User views the index page" do
-  scenario "user sees the correct title" do
+feature "sanity check" do
+  scenario "user sees the title of the application" do
     visit "/"
 
     expect(page).to have_content "Welcome to the Bookshelf!"
