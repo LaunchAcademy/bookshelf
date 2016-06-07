@@ -13,4 +13,17 @@ RSpec.describe Author do
       expect(author.name).to eq("Stephen King")
     end
   end
+
+  describe "#books" do
+    let(:author) { Author.create(name: "Stephen King") }
+
+    it "returns the books written by an author" do
+      carrie = Book.create(title: "Carrie")
+      the_shining = Book.create(title: "The Shining")
+      author.books << carrie
+      author.books << the_shining
+
+      expect(author.books).to eq([carrie, the_shining])
+    end
+  end
 end

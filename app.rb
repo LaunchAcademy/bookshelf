@@ -21,7 +21,7 @@ get "/" do
 end
 
 get "/authors" do
-  @authors = Authors.order(created_at: :desc).limit(10)
+  @authors = Author.order(created_at: :desc).limit(10)
   erb :authors
 end
 
