@@ -1,0 +1,9 @@
+<h1>Authors</h1>
+
+<% @authors.each do |author| %>
+  <div class="author">
+    <a href="/authors/<%= author.id %>/books">
+      <%= author.name %>
+    </a>
+  </div>
+<% end %>

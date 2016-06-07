@@ -20,12 +20,18 @@ get "/" do
   erb :index
 end
 
-get "/people" do
-  @people = Person.order(created_at: :desc).limit(10)
-  erb :people
+get "/authors" do
+  @authors = Authors.order(created_at: :desc).limit(10)
+  erb :authors
 end
 
 get "/books" do
   @books = Book.order(created_at: :desc).limit(10)
   erb :books
 end
+
+get "/people" do
+  @people = Person.order(created_at: :desc).limit(10)
+  erb :people
+end
+
