@@ -21,8 +21,20 @@ feature "people" do
 
       visit "/people"
 
-      expect(page).to have_link("Tim")
-      expect(page).to have_link("Tom")
+      expect(page).to have_link("Tim", href: "/people/#{tim.id}/books")
+      expect(page).to have_link("Tom", href: "/people/#{tom.id}/books")
+    end
+
+    scenario "user views someone's bookshelf" do
+      richard = Person.create(name: "Richard")
+      rails_4_way = Book.create(title: "Rails 4 Way", person: richard)
+      http = Book.create(title: "HTTP: The Definitive Guide", person: richard)
+
+      visit "/people/#{richard.id}/books"
+
+      expect(page).to have_content("Richard's Bookshelf")
+      expect(page).to have_content("Rails 4 Way")
+      expect(page).to have_content("HTTP: The Definitive Guide")
     end
   end
 end

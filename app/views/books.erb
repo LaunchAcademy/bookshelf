@@ -1,5 +1,13 @@
 <h1>Books</h1>
 
+<% if @author %>
+  <h3>Books by <%= @author.name %></h3>
+<% end %>
+
+<% if @person %>
+  <h3><%= @person.name %>'s Bookshelf</h3>
+<% end %>
+
 <% @books.each do |book| %>
   <div class="book">
     <%= book.title %> - by <%= book.author || "Unknown" %>

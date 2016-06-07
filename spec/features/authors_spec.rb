@@ -34,6 +34,7 @@ feature "authors" do
 
       visit "/authors/#{stephen.id}/books"
 
+      expect(page).to have_content("Books by Stephen King")
       expect(page).to have_content("Carrie")
       expect(page).to have_content("The Shining")
     end

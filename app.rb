@@ -41,3 +41,8 @@ get "/people" do
   erb :people
 end
 
+get "/people/:id/books" do
+  @person = Person.find(params[:id])
+  @books = @person.books
+  erb :books
+end
