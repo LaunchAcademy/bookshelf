@@ -9,7 +9,7 @@ Build from Launch Academy's Sinatra Active Record Starter Kit
 
 ```no-highlight
 # Clone it
-git clone git@github.com:LaunchAcademy/bookshelf
+git clone https://github.com/LaunchAcademy/bookshelf.git
 
 # Move into the directory
 cd bookshelf
